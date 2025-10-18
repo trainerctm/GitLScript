@@ -10,11 +10,15 @@ jobs:
     - name: Clone GitLab repo
       run: |
         git clone https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/kupushachete-group/myapp.git
-        cd myapp
-        
+       
+    - name: List files for debugging
+      run: ls -R myapp
+
     - name: Make script executable
       run: chmod +x myapp/script.sh
 
     - name: Run script.sh
       run: ./myapp/script.sh
+
+
 
