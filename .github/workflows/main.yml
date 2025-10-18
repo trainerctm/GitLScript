@@ -1,0 +1,16 @@
+name: MyGitlab Script
+
+on:
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  buildandtest:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone GitLab repo
+      run: |
+        git clone https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/kupushachete-group/myapp.git
+        cd myapp
+
+    - name: Run Script
+      run: bash ./script.sh
